@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const { title } = Astro.props;
+const { titolo } = Astro.props;
 import Hero from '../components/Hero.astro';
-const title = 'Livorno';
 ---
 
-<Layout title={title}>
-	<Hero />
+<Layout title="Livorno">
+	<Hero titolo= "Livorno" />
 </Layout>

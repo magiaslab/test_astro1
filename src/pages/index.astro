@@ -1,11 +1,17 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const { title } = Astro.props;
+const { titolo } = Astro.props;
+import Hero from '../components/Hero.astro';
+import CardSingle from '../components/CardSingle.astro';
+import dati from '../data/dati.json';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+	<Hero titolo= "il titolo della home" />
+    <div class="grid grid-cols-2 gap-4 my-6 mx-3 md:mx-6 lg:mx-12">
+        {dati.map((item) => (
+            <CardSingle titolo={item.titolo} descrizione={item.descrizione} immagine={item.immagine} />
+        ))}
+    </div>
 </Layout>
